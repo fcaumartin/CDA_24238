@@ -1,0 +1,18 @@
+services:
+  db:
+    image: mariadb:10.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Afpa1234
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - 3309:3306
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1

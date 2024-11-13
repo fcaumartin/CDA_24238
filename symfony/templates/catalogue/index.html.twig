@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CatalogueController!{% endblock %}
+
+{% block stylesheets %}
+<style>
+.test {
+    border: 1px red dashed;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+
+    {% for categorie in categories %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 test">
+            {# <a href="/categorie/{{categorie.id}}">{{ categorie.nom }}</a> #}
+            <a href="{{ path("app_catalogue_categorie", { id: categorie.id }) }}">{{ categorie.nom }}</a>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
